@@ -3,7 +3,6 @@
 ![Responsive Mockup image](https://github.com/plexoio/py/blob/main/docs/assets/img/mockup.png)
 
 ## Full Documentation
-View full documentation on Github Pages:
 
 [![DjangoViews Documentation](https://img.shields.io/badge/View-DjangoViews_Documentation-blue)](https://plexoio.github.io/djangoviews/)
 

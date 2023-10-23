@@ -3,9 +3,10 @@ site_name: DjangoViews
 nav:
   - Home: index.md
   - Initialize: initialize/initial.md
-# PLUGINS (bug present as not installed)
-# plugins:
-#   - glightbox
+
+# PLUGINS
+plugins:
+  - glightbox
 
 # THEME
 theme:
@@ -26,14 +27,14 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-      primary: light blue
-      accent: green
+      primary: purple
+      accent: yellow
     - scheme: default
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-      primary: white
-      accent: indigo
+      primary: purple
+      accent: light blue
 
 # EXTRA
 extra:
