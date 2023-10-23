@@ -22,6 +22,9 @@
 
     ```bash
     pip install mkdocs-material
+
+    # Do not forget
+    pip3 freeze > requirements.txt
     ```
 
 3. **Test MkDocs**: Ensure everything is working as expected.
@@ -113,7 +116,9 @@
 1. **Navigate to Your Repository's Settings**: Then go to the "Pages" section.
 2. **Configure Build and Deployment**: Under 'Build and Deployment', select 'Deploy from a branch' then choose the source as 'gh-pages' and click the 'Save' button.
 
-### Style your documentation
+### Style Your Documentation
+Enhance your documentation with the following sample code:
 
+- [DjangoViews Mkdocs Material Style](https://github.com/plexoio/djangoviews/blob/main/mkdocs.yml)
 
 Your GitHub Actions workflow should start automatically. It usually takes a few minutes to deploy. You can check the progress in the "Actions" tab on your GitHub repository. Once the action is complete, your MkDocs documentation will be available on your GitHub Pages URL.
