@@ -2,7 +2,7 @@
 site_name: DjangoViews
 nav:
   - Home: index.md
-
+  - Initialize: initialize/initial.md
 # PLUGINS (bug present as not installed)
 # plugins:
 #   - glightbox
