@@ -2,10 +2,14 @@
 
 ![Responsive Mockup image](https://github.com/plexoio/py/blob/main/docs/assets/img/mockup.png)
 
-## Mkdocs Documentation
-View full documentation on Github Pages using Mkdocs:
+## Full Documentation
+View full documentation on Github Pages:
 
-[![DjangoViews Documentation](https://img.shields.io/badge/View-DjangoViews-blue)](https://plexoio.github.io/djangoviews/) 
+[![DjangoViews Documentation](https://img.shields.io/badge/View-DjangoViews_Documentation-blue)](https://plexoio.github.io/djangoviews/)
+
+## Whatsapp Channel
+
+[![Whatsapp Channel](https://img.shields.io/badge/View-Whatsapp_Channel-green)](https://whatsapp.com/channel/0029VaCsHbn5a23x7hElJL2r) 
 
 ## Credits
 
