@@ -1,0 +1,78 @@
+# GENERAL & NAVs
+site_name: DjangoViews
+nav:
+  - Home: index.md
+
+# PLUGINS (bug present as not installed)
+# plugins:
+#   - glightbox
+
+# THEME
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: light blue
+      accent: green
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: white
+      accent: indigo
+
+# EXTRA
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/plexoio
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/plexoio
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/arellanofrank/
+
+# EXTENSIONS
+markdown_extensions:
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # Updated Path
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # Updated Path
+
+
+
+copyright: |
+  &copy; 2023 by <a href="https://github.com/plexoio"  target="_blank" rel="noopener">Frank Arellano</a> 
+  with 
+  <a href="https://www.mkdocs.org/"  target="_blank" rel="noopener">MkDocs</a>
