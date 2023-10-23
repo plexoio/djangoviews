@@ -1,6 +1,6 @@
 # DjangoViews: Traversing Class-Based and Function-Based Views in Django
 
-![Responsive Mockup image](https://github.com/plexoio/py/blob/main/docs/assets/img/mockup.png)
+![Responsive Mockup image](https://github.com/plexoio/djangoviews/blob/main/docs/assets/img/mockup.png)
 
 ## Full Documentation
 
