@@ -2,9 +2,11 @@
 
 [GitHub Repository](https://github.com/plexoio/djangoviews){ .md-button .md-button--primary }
 
+[Whatsapp Channel](https://whatsapp.com/channel/0029VaCsHbn5a23x7hElJL2r){ .md-button .md-button--info }
+
 [Author's LinkedIn](https://www.linkedin.com/in/arellanofrank/){ .md-button .md-button--info }
 
-![Documentation's Mockup Image](./assets/img/mockup.png)
+![Documentation's Mockup Image](./assets/img/mockup.png#only-light)
 
 [![No License](https://img.shields.io/badge/License-No_License-red)](about/LICENSE.md) 
 

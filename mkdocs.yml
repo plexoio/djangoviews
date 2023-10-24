@@ -1,14 +1,32 @@
 # GENERAL & NAVs
-site_name: DjangoViews
+site_name: DjangoViews by Frank Arellano
 nav:
   - Home: index.md
-  - Initialize: initialize/initial.md
+  - CBVs:
+      - Overview: oop/overview.md
+      - What is CBVs?: oop/class/class.md
+      - Traversing:
+          - CustomLoginView: oop/traversing/login_view.md
+  - FBVs:
+      - Overview: fbvs/overview.md
+      - What is FBVs?: fbvs/fbvs/fbvs.md
+      - Traversing:
+          - Placeholder: fbvs/traversing/placeholder.md
+  - Snack:
+      - Overview: snack/overview.md
+      - Initialize MkDocs: snack/initialize/initial.md
+  - About:
+      - About me: about/about.md
+      - License: about/LICENSE.md
 # PLUGINS (bug present)
 # plugins:
 #   - glightbox
 
 # THEME
 theme:
+  font:
+    text: Roboto
+    code: Roboto Mono
   name: material
   features:
     - navigation.tabs
@@ -24,16 +42,17 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-      primary: purple
-      accent: yellow
-    - scheme: slate
-      toggle:
         icon: material/toggle-switch
         name: Switch to light mode
       primary: purple
       accent: light blue
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: black
+      accent: yellow
+
 
 # EXTRA
 extra:
