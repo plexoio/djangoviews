@@ -8,6 +8,14 @@ The aim of this repository/channel is to foster attention to detail, enhance com
 
 To prevent the feeling of being overwhelmed, commonly experienced on other social platforms, I employ progressive disclosure and get straight to the point.
 
+## Key Features
+
+- Responsive Documentation
+- Internal Search Engine
+- Colored Code Blocks
+- Light/Dark Mode Toggle
+- WhatsApp Channel
+
 ## Full Documentation
 
 [![DjangoViews Documentation](https://img.shields.io/badge/View-DjangoViews_Documentation-blue)](https://plexoio.github.io/djangoviews/)

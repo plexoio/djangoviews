@@ -9,6 +9,14 @@
 ![Documentation's Mockup Image, Light Mode](./assets/img/mockup-light.png#only-light)
 ![Documentation's Mockup Image, Dark Mode](./assets/img/mockup-dark.png#only-dark)
 
+## Key Features
+
+- Responsive Documentation
+- Internal Search Engine
+- Colored Code Blocks
+- Light/Dark Mode Toggle
+- WhatsApp Channel
+
 [![No License](https://img.shields.io/badge/License-No_License-red)](about/LICENSE.md) 
 
 ??? danger "No License"
