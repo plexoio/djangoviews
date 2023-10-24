@@ -6,9 +6,8 @@
 
 [Author's LinkedIn](https://www.linkedin.com/in/arellanofrank/){ .md-button .md-button--info }
 
-![Documentation's Mockup Image, Light Mode](./assets/img/mockup.png#only-light)
-# FIX!
-![Documentation's Mockup Image, Dark Mode](./assets/img/mockup.png#only-dark)
+![Documentation's Mockup Image, Light Mode](./assets/img/mockup-light.png#only-light)
+![Documentation's Mockup Image, Dark Mode](./assets/img/mockup-dark.png#only-dark)
 
 [![No License](https://img.shields.io/badge/License-No_License-red)](about/LICENSE.md) 
 

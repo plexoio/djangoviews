@@ -44,15 +44,14 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-      primary: purple
-      accent: light blue
+      primary: white
+      accent: indigo
     - scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
       primary: black
       accent: yellow
-
 
 # EXTRA
 extra:
@@ -88,8 +87,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
-
 
 copyright: |
   &copy; 2023 by <a href="https://github.com/plexoio"  target="_blank" rel="noopener">Frank Arellano</a> 
