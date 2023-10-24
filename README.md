@@ -14,7 +14,7 @@
 
 ## Badges
 
-[![No License](https://img.shields.io/badge/License-No_License-red)](https://plexoio.github.io/py/LICENSE/) 
+[![No License](https://img.shields.io/badge/License-No_License-red)](https://plexoio.github.io/djangoviews/about/LICENSE/) 
 
 > You cannot reproduce, distribute, or create derivative works from this project.
 
