@@ -16,8 +16,11 @@ nav:
       - Overview: snack/overview.md
       - Initialize MkDocs: snack/initialize/initial.md
   - About:
-      - About me: about/about.md
+      - About Me: about/about.md
       - License: about/LICENSE.md
+  - Credits:
+      - Acknowledgement : credits/credits.md
+
 # PLUGINS (bug present)
 # plugins:
 #   - glightbox

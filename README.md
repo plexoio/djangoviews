@@ -1,6 +1,9 @@
 # DjangoViews: Traversing Class-Based and Function-Based Views in Django
+I meticulously analyze my own code, with a preference for using OOP through class-based views. However, I'm working as well with function-based views.
 
-![Responsive Mockup image](https://github.com/plexoio/djangoviews/blob/main/docs/assets/img/mockup.png)
+The aim of this repository/channel is to foster attention to detail, enhance comprehension, and promote versatility in Python coding, specifically within the Django framework.
+
+To prevent the feeling of being overwhelmed, commonly experienced on other social platforms, I employ progressive disclosure and get straight to the point.
 
 ## Full Documentation
 

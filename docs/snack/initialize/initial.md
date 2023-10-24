@@ -1,4 +1,7 @@
-## Setting Up Your Project Using Gitpod and Code Institute's Template
+## Setting Up Your Project
+
+???+ note "CLI/Bash"
+    Please note how we make use of Gitpod CLI (Command-line interface) or Bash throughout the process.
 
 ### Initial Setup
 
@@ -8,6 +11,7 @@
 
     ```bash
     pip3 install 'django<4' gunicorn psycopg2
+    # `gunicorn` & `psycopg2` are optional
     ```
 
 ### Installing MkDocs and Dependencies
@@ -27,7 +31,7 @@
     pip3 freeze > requirements.txt
     ```
 
-3. **Test MkDocs**: Ensure everything is working as expected.
+3. **Test MkDocs**: Ensure everything is working as expected, if not, reinstall Django, mkdocs & mkdocs-material.
 
     ```bash
     mkdocs serve
@@ -35,7 +39,7 @@
 
 ---
 
-## Setting Up GitHub Actions for Mkdocs Automated Deployment
+## Setting Up GitHub Actions
 
 ### Create GitHub Actions Workflow
 
@@ -63,7 +67,7 @@
     cd ..
     ```
 
-5. **Create `ci.yml` File**: This file defines your CI/CD pipeline.
+5. **Create `ci.yml` File**: This file defines your CI (Continuous Integration)/CD (Continuous Deployment/Delivery) pipeline.
 
     ```bash
     touch ci.yml
