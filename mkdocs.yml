@@ -27,6 +27,7 @@ nav:
 
 # THEME
 theme:
+  logo: assets/img/logo.png
   font:
     text: Roboto
     code: Roboto Mono
