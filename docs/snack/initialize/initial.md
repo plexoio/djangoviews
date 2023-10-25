@@ -121,7 +121,7 @@
 2. **Configure Build and Deployment**: Under 'Build and Deployment', select 'Deploy from a branch' then choose the source as 'gh-pages' and click the 'Save' button.
 
 ### Style Your Documentation
-Enhance your documentation with the following sample code:
+Enhance your documentation with the following sample code by updating the `mkdocs.yml` file:
 
 - [DjangoViews Mkdocs Material Style](https://github.com/plexoio/djangoviews/blob/main/mkdocs.yml)
 

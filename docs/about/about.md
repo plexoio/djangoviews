@@ -16,8 +16,8 @@ I've been particularly focused on creating digital solutions that bring value to
 - Design Thinking
 - Agile Development
 - User-Centric Design
+- User Experience (UE) & User Interface (UI) Design (UXD)
 - E-commerce, SEO & Web Marketing
-- User Experience (UE) & User Interface (UI) Design
 
 🌱 Why I'm on [LinkedIn](https://www.linkedin.com/in/arellanofrank/)
 
