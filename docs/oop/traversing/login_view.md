@@ -80,7 +80,7 @@ class CustomLoginView(LoginView):
 
 This allows you to render your form within a customizable template.
 
-### Final Word
+### Handy Summary
 
 The process is simple: install `django-allauth`, inherit from its `LoginView`, and override the default attributes to customize it according to your needs.
 
