@@ -14,6 +14,7 @@ nav:
           - Placeholder: fbvs/traversing/placeholder.md
   - Snack:
       - Overview: snack/overview.md
+      - Polymorphism: snack/polymorphism/polymorphism.md
       - Initialize MkDocs: snack/initialize/initial.md
   - About:
       - About Me: about/about.md
