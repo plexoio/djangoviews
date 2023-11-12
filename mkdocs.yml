@@ -7,6 +7,7 @@ nav:
       - What is CBVs?: oop/class/class.md
       - Traversing:
           - CustomLoginView: oop/traversing/login_view.md
+          - CustomSignupView: oop/traversing/signup_view.md
   - FBVs:
       - Overview: fbvs/overview.md
       - What is FBVs?: fbvs/fbvs/fbvs.md

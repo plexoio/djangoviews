@@ -18,7 +18,7 @@ Django is a framework, which means it offers built-in reusable components. One o
 from allauth.account.views import LoginView
 ```
 
-This additional layer of functionality allows for features like social authentication and email verification.
+- This additional layer of functionality allows for features like social authentication and email verification.
 
 That said, you'll need to install the package beforehand:
 
@@ -27,6 +27,9 @@ pip install django-allauth
 ```
 
 If you choose not to install it, you will retain the core functionality described below, minus the additional features provided by `allauth`.
+
+???+ quote "Quote"
+    The process is simple: install `django-allauth`, inherit from its `LoginView`, and override the default attributes to customize it according to your needs.
 
 ### What Does it Do?
 
@@ -79,10 +82,6 @@ class CustomLoginView(LoginView):
 ```
 
 This allows you to render your form within a customizable template.
-
-### Handy Summary
-
-The process is simple: install `django-allauth`, inherit from its `LoginView`, and override the default attributes to customize it according to your needs.
 
 ### Insights & Clean Code
 
