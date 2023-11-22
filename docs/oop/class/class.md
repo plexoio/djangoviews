@@ -1,5 +1,5 @@
 ## Overview
-In Django, you have the option to use either class-based views (CBVs) or function-based views (FBVs). Class-based views are indeed often associated with Object-Oriented Programming (OOP) because they allow for better reuse and composition(modularity) of code by utilizing inheritance and mixins.
+In Django, you have the option to use either class-based views (CBVs) or function-based views (FBVs). Class-based views are indeed often associated with Object-Oriented Programming (OOP) because they allow for better reuse and composition (modularity) of code by utilizing inheritance and mixins.
 
 ???+ quote "Quote"
     "Building complex views by combining simpler, reusable components." - Django Design Philosophy/OOP Principles

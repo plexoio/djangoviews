@@ -4,15 +4,15 @@ nav:
   - Home: index.md
   - CBVs:
       - Overview: oop/overview.md
-      - What is CBVs?: oop/class/class.md
-      - What are Django Views?: oop/class/django_views.md
+      - What Are CBVs?: oop/class/class.md
+      - What Are Django Views?: oop/class/django_views.md
       - Traversing:
           - CustomLoginView: oop/traversing/login_view.md
           - CustomSignupView: oop/traversing/signup_view.md
           - CustomLogoutView: oop/traversing/logout_view.md
   - FBVs:
       - Overview: fbvs/overview.md
-      - What is FBVs?: fbvs/fbvs/fbvs.md
+      - What Are FBVs?: fbvs/fbvs/fbvs.md
       - Traversing:
           - Placeholder: fbvs/traversing/placeholder.md
   - Snack:
