@@ -5,6 +5,7 @@ nav:
   - CBVs:
       - Overview: oop/overview.md
       - What is CBVs?: oop/class/class.md
+      - What are Django Views?: oop/class/django_views.md
       - Traversing:
           - CustomLoginView: oop/traversing/login_view.md
           - CustomSignupView: oop/traversing/signup_view.md

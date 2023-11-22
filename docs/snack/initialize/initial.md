@@ -37,6 +37,9 @@
     mkdocs serve
     ```
 
+### Bug 'ZoneInfo'
+
+To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` please install Django as described above.
 ---
 
 ## Setting Up GitHub Actions
