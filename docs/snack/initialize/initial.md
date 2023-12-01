@@ -77,7 +77,7 @@ To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` pl
 
     **Add the Following Content to `ci.yml`:**
 
-    ```yml
+    ```yaml
     name: ci
     on:
       push:
@@ -135,4 +135,21 @@ If you want to update all extensions please use the following code:
 
 ```bash
 pip install --upgrade mkdocs mkdocs-material pymdown-extensions
+```
+
+## Install MathJax
+
+MathJax and KaTeX are two popular libraries for displaying mathematical content in browsers. Although both libraries offer similar functionality, they use different syntaxes and have different configuration options. This documentation site provides information on how to integrate them with Material for MkDocs easily. For more visit [Mkdocs Material](https://squidfunk.github.io/mkdocs-material/reference/math/?h=math#mathjax-mkdocsyml)
+
+MathJax is a powerful and flexible library that supports multiple input formats, such as LaTeX, MathML, AsciiMath, as well as various output formats like HTML, SVG, MathML. To use MathJax within your project, add the following lines to your mkdocs.yml:
+
+```yaml
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 ```
