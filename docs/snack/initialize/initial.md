@@ -144,7 +144,34 @@ MathJax and KaTeX are two popular libraries for displaying mathematical content 
 
 MathJax is a powerful and flexible library that supports multiple input formats, such as LaTeX, MathML, AsciiMath, as well as various output formats like HTML, SVG, MathML. To use MathJax within your project, add the following lines to your mkdocs.yml:
 
+- First, add this Javascript code:
+
+```javascript
+// LOCATION: docs/javascripts/mathjax.js
+
+window.MathJax = {
+  tex: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    ignoreHtmlClass: ".*|",
+    processHtmlClass: "arithmatex"
+  }
+};
+
+document$.subscribe(() => { 
+  MathJax.typesetPromise()
+})
+```
+
+- Second, add this yml code:
+
 ```yaml
+# LOCATION: mkdocs.yml
+
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
