@@ -37,10 +37,9 @@
     mkdocs serve
     ```
 
-### Bug 'ZoneInfo'
+### Bug - ZoneInfo
 
 To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` please install Django as described above.
----
 
 ## Setting Up GitHub Actions
 
@@ -129,3 +128,11 @@ Enhance your documentation with the following sample code by updating the `mkdoc
 - [DjangoViews Mkdocs Material Style](https://github.com/plexoio/djangoviews/blob/main/mkdocs.yml)
 
 Your GitHub Actions workflow should start automatically. It usually takes a few minutes to deploy. You can check the progress in the "Actions" tab on your GitHub repository. Once the action is complete, your MkDocs documentation will be available on your GitHub Pages URL.
+
+## Update Mkdocs & Mkdocs Material
+
+If you want to update all extensions please use the following code:
+
+```bash
+pip install --upgrade mkdocs mkdocs-material pymdown-extensions
+```
