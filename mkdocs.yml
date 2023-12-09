@@ -10,6 +10,7 @@ nav:
           - CustomLoginView: oop/traversing/login_view.md
           - CustomSignupView: oop/traversing/signup_view.md
           - CustomLogoutView: oop/traversing/logout_view.md
+          - HomepageProductServiceView: oop/traversing/product_service_view.md
   - FBVs:
       - Overview: fbvs/overview.md
       - What Are FBVs?: fbvs/fbvs/fbvs.md
