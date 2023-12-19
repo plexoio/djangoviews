@@ -55,9 +55,13 @@
     cloudinary_python.txt
     ```
 
-### Bug - ZoneInfo
+6. **Push Changes to GitHub**
 
-To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` please install Django as described above.
+    ```bash
+    git add .
+    git commit -m "Initial Commit"
+    git push
+    ```
 
 ## Setting Up GitHub Actions
 
@@ -138,8 +142,8 @@ To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` pl
 ### Final Configuration on GitHub
 
 1. **Navigate to Your Repository's Settings**: Then go to the "Pages" section.
-2. **Configure Build and Deployment**: Under 'Build and Deployment', select 'Deploy from a branch' then choose the source as 'gh-pages' and click the 'Save' button.
-3. **Find URL**: Go back to GitHub Actions and check the process `pages build and deployment ` once it is completed (green). Access it to find your URL at the build-deploy level.
+2. **Configure Build and Deployment**: Under 'Build and Deployment', select 'Deploy from a branch' then choose the `source` as `'gh-pages'` **do not change** the `/ (root)` and click the 'Save' button.
+3. **Find URL**: Go back to GitHub Actions and check the process `pages build and deployment ` once it is completed (green). Access it to find your URL at the `build-deploy` level.
 
 ## Style Your Documentation
 Enhance your documentation with the following sample code by updating the `mkdocs.yml` file:
@@ -211,3 +215,7 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 ```
+
+### Bug - ZoneInfo
+
+To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` please install Django as described above.
