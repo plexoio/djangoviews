@@ -1,6 +1,6 @@
 # DjangoViews: Traversing Class-Based and Function-Based Views in Django
 [GitHub Repository](https://github.com/plexoio/collaboration){ .md-button .md-button--primary }
-
+[Whatsapp Channel](https://whatsapp.com/channel/0029VaCsHbn5a23x7hElJL2r){ .md-button .md-button--info }
 [Author's LinkedIn](https://www.linkedin.com/in/arellanofrank/){ .md-button .md-button--info }
 
 ![Documentation's Mockup Image, Light Mode](./assets/img/mockup-light.png#only-light)
@@ -24,7 +24,7 @@
     - Oct 25, 2023 📅
 
 ???+ tip "Last Update"
-    - Oct 26, 2023 📅
+    - Dec 19, 2023 📅
 
 ??? danger "No License"
     [![No License](https://img.shields.io/badge/License-No_License-red)](about/LICENSE.md)
