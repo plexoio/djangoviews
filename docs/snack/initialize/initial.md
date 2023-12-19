@@ -45,6 +45,18 @@
     cd my-new-project
     mkdocs serve
     ```
+5. **Important**: Remove `.github/` from the `.gitignore` file. It is important to set up the docs with Github Pages:
+
+    ```bash
+    core.Microsoft*
+    core.mongo*
+    core.python*
+    env.py
+    __pycache__/
+    *.py[cod]
+    node_modules/
+    cloudinary_python.txt
+    ```
 
 ### Bug - ZoneInfo
 
