@@ -2,9 +2,9 @@
 
 ![Responsive Mockup image](docs/assets/img/mockup-light.png)
 
-I meticulously analyze my own code, with a preference for using OOP through class-based views. However, I'm working as well with function-based views.
+I meticulously analyze my code, with a preference for using OOP through class-based views. However, I'm working as well with function-based views.
 
-The aim of this repository/channel is to foster attention to detail, enhance comprehension, and promote versatility in Python coding, specifically within the Django framework.
+This repository/channel aims to foster attention to detail, enhance comprehension, and promote versatility in Python coding, specifically within the Django framework.
 
 To prevent the feeling of being overwhelmed, commonly experienced on other social platforms, I employ progressive disclosure and get straight to the point.
 
