@@ -1,0 +1,1656 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../class/">
+      
+      
+        <link rel="next" href="../../traversing/login_view/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>What Are Django Views? - DjangoViews by Frank Arellano</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#insights-to-django-views" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="DjangoViews by Frank Arellano" class="md-header__button md-logo" aria-label="DjangoViews by Frank Arellano" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DjangoViews by Frank Arellano
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What Are Django Views?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../overview/" class="md-tabs__link">
+          
+  
+  CBVs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../fbvs/overview/" class="md-tabs__link">
+          
+  
+  FBVs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../snack/overview/" class="md-tabs__link">
+          
+  
+  Snack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/about/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../credits/credits/" class="md-tabs__link">
+          
+  
+  Credits
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DjangoViews by Frank Arellano" class="md-nav__button md-logo" aria-label="DjangoViews by Frank Arellano" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    DjangoViews by Frank Arellano
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CBVs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CBVs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Are CBVs?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    What Are Django Views?
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    What Are Django Views?
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#insights-to-django-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insights to Django Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insights-to-templateview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insights to TemplateView
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Insights to TemplateView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second Option
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      Third Option
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-journey-of-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Journey of Exploration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Traversing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Traversing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../traversing/login_view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomLoginView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../traversing/signup_view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomSignupView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../traversing/logout_view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomLogoutView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../traversing/product_service_view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HomepageProductServiceView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FBVs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            FBVs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fbvs/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fbvs/fbvs/fbvs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Are FBVs?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Traversing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Traversing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fbvs/traversing/placeholder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Placeholder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Snack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Snack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snack/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snack/polymorphism/polymorphism/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snack/initialize/initial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Initialize MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Me
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/LICENSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Credits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Credits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credits/credits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acknowledgement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>What Are Django Views?</h1>
+
+<p>In Django, there are built-in class-based views (15+) that provide a higher-level structure for handling common web application tasks. We will use them throughout our project. Let's discuss these views using Object-Oriented Programming (OOP) principles:</p>
+<details class="example">
+<summary>Quick Insight</summary>
+<p>Django provides several built-in class-based views, and the number may have increased with subsequent releases. These core views cover a range of common tasks encountered in web development. Here are some of the key class-based views:</p>
+<ol>
+<li>
+<p><strong>View:</strong></p>
+<ul>
+<li>The base class for all views.</li>
+</ul>
+</li>
+<li>
+<p><strong>TemplateView:</strong></p>
+<ul>
+<li>Renders a template.</li>
+</ul>
+</li>
+<li>
+<p><strong>RedirectView:</strong></p>
+<ul>
+<li>Redirects to a specified URL.</li>
+</ul>
+</li>
+<li>
+<p><strong>ListView:</strong></p>
+<ul>
+<li>Displays a list of objects.</li>
+</ul>
+</li>
+<li>
+<p><strong>DetailView:</strong></p>
+<ul>
+<li>Displays the details of a single object.</li>
+</ul>
+</li>
+<li>
+<p><strong>CreateView:</strong></p>
+<ul>
+<li>Handles the creation of new objects.</li>
+</ul>
+</li>
+<li>
+<p><strong>UpdateView:</strong></p>
+<ul>
+<li>Handles updating existing objects.</li>
+</ul>
+</li>
+<li>
+<p><strong>DeleteView:</strong></p>
+<ul>
+<li>Handles the deletion of objects.</li>
+</ul>
+</li>
+<li>
+<p><strong>FormView:</strong></p>
+<ul>
+<li>Handles forms and form submissions.</li>
+</ul>
+</li>
+<li>
+<p><strong>ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView:</strong></p>
+<ul>
+<li>Views for displaying date-based archives.</li>
+</ul>
+</li>
+<li>
+<p><strong>ArchiveDetailView:</strong></p>
+<ul>
+<li>Displays the details of an object in a date-based archive format.</li>
+</ul>
+</li>
+<li>
+<p><strong>TemplateResponseMixin:</strong></p>
+<ul>
+<li>A mixin class that provides rendering a template.</li>
+</ul>
+</li>
+<li>
+<p><strong>ContextMixin:</strong></p>
+<ul>
+<li>A mixin class that provides methods for adding extra context to the view.</li>
+</ul>
+</li>
+<li>
+<p><strong>MultipleObjectMixin, SingleObjectMixin:</strong></p>
+<ul>
+<li>Mixins for working with multiple or single objects in views.</li>
+</ul>
+</li>
+<li>
+<p><strong>StaticView:</strong></p>
+<ul>
+<li>A view to serve static files.</li>
+</ul>
+</li>
+</ol>
+<p>Note that Django is actively developed, and new features, including new class-based views, may have been added in subsequent releases. It's a good practice to refer to the official Django documentation for the most up-to-date information on class-based views: <a href="https://docs.djangoproject.com/en/stable/topics/class-based-views/">Django Class-Based Views</a></p>
+</details>
+<h2 id="insights-to-django-views">Insights to Django Views</h2>
+<p>Now let's dive into them:</p>
+<ol>
+<li>
+<p><strong>View:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: The <code>View</code> class is like an abstract base class for your class-based views in Django. It provides a foundation for handling HTTP requests and responses.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span> <span class="nc">MyView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="c1"># Your view logic here</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="example">
+<summary>Other <code>View Class</code> Methods</summary>
+<p>In Django's class-based views, such as the example you provided (<code>class MyView(View)</code>), you can override various methods to customize the behavior of the view. Here are some commonly used methods that you can override in a basic <code>View</code>:</p>
+<ol>
+<li>
+<p><strong><code>get(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles GET requests.</li>
+<li>Example: This is where you would put the logic for processing GET requests.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>post(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles POST requests.</li>
+<li>Example: Useful for processing form submissions or any action that modifies data on the server.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>put(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles PUT requests.</li>
+<li>Example: Typically used for updating resources on the server.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>patch(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles PATCH requests.</li>
+<li>Example: Similar to <code>put</code>, but used for partial updates to resources.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>delete(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles DELETE requests.</li>
+<li>Example: Used for deleting resources on the server.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>head(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles HEAD requests.</li>
+<li>Example: Similar to GET, but without the response body. Used to check if a resource has changed.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>options(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Handles OPTIONS requests.</li>
+<li>Example: Provides information about the communication options for the target resource.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>http_method_not_allowed(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Called for HTTP methods that are not allowed.</li>
+<li>Example: Customize the behavior when an unsupported HTTP method is used.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>setup(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: Runs at the beginning of each request before other methods are called.</li>
+<li>Example: Useful for setting up any necessary resources or configurations.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>dispatch(self, request, *args, **kwargs)</code>:</strong></p>
+<ul>
+<li>Purpose: The central dispatcher for the view. Calls the appropriate method based on the HTTP method of the request.</li>
+<li>Example: Override this if you need custom dispatching logic.</li>
+</ul>
+</li>
+</ol>
+<p>These methods provide hooks at different stages of the view processing lifecycle. By overriding them, you can customize the behavior of your view based on the specific needs of your application. In your example, the <code>get</code> method is overridden to handle GET requests, but you can choose to override other methods based on the type of requests you expect to handle in your view.</p>
+</details>
+<p>In OOP terms, <code>View</code> is an abstract class, and <code>MyView</code> is your subclass that overrides its methods to handle specific HTTP request types.</p>
+</li>
+<li>
+<p><strong>ListView:</strong> </p>
+<ul>
+<li><strong>Purpose</strong>: <code>ListView</code> is a class for displaying a list of items from a database model/table. It encapsulates the logic for retrieving and rendering a list of objects/instances of that model.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span> <span class="nc">MyModelListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;my_model_list.html&#39;</span>
+</code></pre></div>
+<p>In OOP terms, <code>ListView</code> is like a class that specializes in displaying lists of objects (instances of <code>MyModel</code> in our case), and we need <code>MyModelListView</code> as a subclass that configures it for a specific model and template.</p>
+</li>
+<li>
+<p><strong>DetailView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>DetailView</code> is used to display the details of a single object/instance from a database model. It encapsulates the logic for retrieving and rendering a single object.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">DetailView</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span> <span class="nc">MyModelDetailView</span><span class="p">(</span><span class="n">DetailView</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;my_model_detail.html&#39;</span>
+</code></pre></div>
+<p>In OOP terms, <code>DetailView</code> is like a class specialized for displaying details of a single object, and <code>MyModelDetailView</code> is a subclass configured for a specific model and template.</p>
+<hr />
+<p>These class-based views (above) are a way of applying OOP principles to web development. They serve as templates for defining view behavior (controller) in a structured and reusable manner, making it easier to manage complex web applications. Each view class provides a specific set of methods to handle different HTTP request types, allowing for more organized and maintainable code:</p>
+<details class="quote" open="open">
+<summary>Quote</summary>
+<p>It's like assigning names to things in your room and then classifying them into special sets for easy manipulation, maintenance, and control.</p>
+</details>
+<p>In addition to the basic views like <code>View</code>, <code>ListView</code>, and <code>DetailView</code>, Django provides various other built-in class-based views to handle common web development tasks. Here are some of the commonly used ones:</p>
+</li>
+<li>
+<p><strong>CreateView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>CreateView</code> is used for handling the creation of new objects, typically when submitting forms. It encapsulates the logic for creating and saving a new instance of a model.</li>
+</ul>
+</li>
+<li>
+<p><strong>UpdateView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>UpdateView</code> is used to update existing objects, often in response to form submissions. It handles retrieving, updating, and saving changes to an existing model instance.</li>
+</ul>
+</li>
+<li>
+<p><strong>DeleteView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>DeleteView</code> is used for deleting objects. It provides the logic to display a confirmation page and, upon confirmation, delete the specified object.</li>
+</ul>
+</li>
+<li>
+<p><strong>RedirectView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>RedirectView</code> is used to perform URL redirections. It allows you to define rules for redirecting requests from one URL pattern to another.</li>
+</ul>
+</li>
+<li>
+<p><strong>TemplateView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>TemplateView</code> is for rendering HTML templates along with data. It's commonly used to display static content or pages with minimal dynamic data.</li>
+</ul>
+</li>
+<li>
+<p><strong>ArchiveIndexView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>ArchiveIndexView</code> is used for displaying a list of objects in a date-based archive format. It's often used for blog post archives.</li>
+</ul>
+</li>
+<li>
+<p><strong>YearArchiveView, MonthArchiveView, DayArchiveView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: These views are for displaying object lists by year, month, and day, respectively, in a date-based archive format.</li>
+</ul>
+</li>
+<li>
+<p><strong>ArchiveDetailView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>ArchiveDetailView</code> displays the details of an object in a date-based archive format, typically used for blog posts or news articles.</li>
+</ul>
+</li>
+<li>
+<p><strong>FormView:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: <code>FormView</code> is used for rendering and processing forms. It can be customized to display and handle different types of forms.</li>
+</ul>
+</li>
+<li>
+<p><strong>View Mixins:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Django provides various mixins, such as <code>LoginRequiredMixin</code> and <code>PermissionRequiredMixin</code>, that can be combined with other views to add additional functionality. For example, <code>LoginRequiredMixin</code> ensures that only authenticated users can access a view.</li>
+</ul>
+</li>
+<li>
+<p><strong>API Views (Django REST framework):</strong></p>
+<ul>
+<li><strong>Purpose</strong>: If you are building a RESTful API, you can use views provided by the Django REST framework. These include <code>APIView</code>, <code>ListAPIView</code>, <code>RetrieveAPIView</code>, <code>CreateAPIView</code>, <code>UpdateAPIView</code>, and <code>DestroyAPIView</code>, among others, for handling API requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom Views:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: You can create custom views by defining your own view classes. These views can encapsulate specific logic and handle various tasks tailored to your application's needs.</li>
+</ul>
+</li>
+</ol>
+<p>These are just some examples of the built-in class-based views provided by Django. Depending on your project requirements, you can use these views as a starting point and customize them to suit your application's specific needs.</p>
+<h2 id="insights-to-templateview">Insights to TemplateView</h2>
+<p>Here's an example of a <code>TemplateView</code> in Django. In this example, we'll create a simple TemplateView that renders an HTML template along with some context data. You can also directly call the model within the template without explicitly overriding the get_context_data method:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># views.py</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">class</span> <span class="nc">MyTemplateView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;templates/my_template.html&#39;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Frank&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>            <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">return</span> <span class="n">context</span>
+</code></pre></div>
+<p>In this code:</p>
+<ol>
+<li>
+<p>We import <code>TemplateView</code> from <code>django.views.generic</code>.</p>
+</li>
+<li>
+<p>We create a class named <code>MyTemplateView</code> that inherits from <code>TemplateView</code>.</p>
+</li>
+<li>
+<p>We specify the <code>template_name</code> attribute, which is the name of the HTML template we want to render. In this example, it's named <code>'templates/my_template.html'</code>. Ensure that the template file exists in the appropriate template directory of your Django project.</p>
+</li>
+<li>
+<p>We override/define the <code>get_context_data</code> method to provide context data to the template. In this case, we include two variables, <code>name</code> and <code>age</code>, in the context dictionary.</p>
+</li>
+</ol>
+<p>Now, when a user accesses the URL associated with <code>MyTemplateView</code>, it will render the <code>'my_template.html'</code> template with the provided context data. The template can use the <code>name</code> and <code>age</code> variables to display information, and you can customize the template as needed (frontend).</p>
+<h3 id="second-option">Second Option</h3>
+<p>You can use <code>TemplateView</code> to render a list of items as well, not limited to static rendering. While <code>ListView</code> is specifically designed for displaying lists of objects from a queryset, <code>TemplateView</code> gives you more flexibility to define your own logic for displaying data. </p>
+<details class="quote" open="open">
+<summary>Quote</summary>
+<p>We provide this explanation because you can extrapolate these ideas to interact with the templates while using other views.</p>
+</details>
+<p>Here's an example of using <code>TemplateView</code> to display a list of items:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># models.py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># views.py</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">class</span> <span class="nc">MyTemplateListView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;templates/my_template_list.html&#39;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="s1">&#39;my_model_list&#39;</span><span class="p">:</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="k">return</span> <span class="n">context</span>
+</code></pre></div>
+<p>In this example:</p>
+<ol>
+<li>
+<p>We have a simple model <code>MyModel</code> with a <code>name</code> field.</p>
+</li>
+<li>
+<p>We create a <code>MyTemplateListView</code> class that inherits from <code>TemplateView</code>.</p>
+</li>
+<li>
+<p>We specify the <code>template_name</code> attribute, pointing to the HTML template (<code>'templates/my_template_list.html'</code>) that will render the list.</p>
+</li>
+<li>
+<p>In the <code>get_context_data</code> method, we retrieve all instances of <code>MyModel</code> and include them in the context as <code>my_model_list</code>.</p>
+</li>
+</ol>
+<h3 id="third-option">Third Option</h3>
+<p>In a <code>TemplateView</code>, you can directly call the model within the template without explicitly overriding the <code>get_context_data</code> method. The view can still pass the model instances to the template, and you can access them directly in the template.</p>
+<p>Here's an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># views.py</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">class</span> <span class="nc">MyTemplateListView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;my_template_list.html&#39;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">context_data_name</span> <span class="o">=</span> <span class="s1">&#39;my_model_list&#39;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="k">return</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</code></pre></div>
+<p>In this example:</p>
+<ol>
+<li>We use the <code>get_queryset</code> method to retrieve the queryset of <code>MyModel</code> instances. This method is similar to what you would use in a <code>ListView</code>, but since we're not directly using it to display a list, we don't need to override <code>get_context_data</code>.</li>
+</ol>
+<p>Now, in your template (<code>my_template_list.html</code>), you can directly access the queryset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">&lt;!-- my_template_list.html --&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My Model List<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My Model List<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        {% for item in my_model_list %}
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ item.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        {% endfor %}
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Here, we use <code>my_model_list</code> instead of  <code>object_list</code> (the default context variable) because we are redefining <code>context_data_name</code> class attribute. The name chosen represents the queryset returned by <code>get_queryset</code>. The loop then iterates over <code>my_model_list</code> to get each item in the queryset and displays the <code>name</code> attribute.</p>
+<p>This approach is more concise if you don't need to customize the context data extensively. It leverages the default behavior of <code>TemplateView</code> to pass the queryset to the template without the need for explicit context data overriding.</p>
+<h2 id="a-journey-of-exploration">A Journey of Exploration</h2>
+<p>In the course of this project, we will embark on a captivating journey through different Django views. Each view, with its unique purpose and functionality, will be unravelled to deepen your comprehension of the Django framework.</p>
+<p>As we traverse the landscape of class-based views, you'll witness a diverse range of functionalities, from rendering templates to handling forms, displaying lists, and managing details. This exploration is not merely about following predefined paths but about encouraging you to navigate, experiment, and understand the intricacies of each view.</p>
+<p>The goal is not just mastery but the cultivation of your creative instincts. You'll be prompted to infuse your own ideas and solutions into the code, shaping Django views to align with the distinctive requirements of your projects. This hands-on approach will not only build your technical proficiency but also fuel your creative expression.</p>
+<p>So, fasten your seatbelt as we venture into the world of Django views. Let the exploration begin, and let your creativity thrive!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 by <a href="https://github.com/plexoio"  target="_blank" rel="noopener">Frank Arellano</a> 
+using 
+<a href="https://www.mkdocs.org/"  target="_blank" rel="noopener">MkDocs</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/plexoio" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/plexoio" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/arellanofrank/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
