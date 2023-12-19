@@ -22,18 +22,27 @@
     pip install mkdocs
     ```
 
-2. **Install MkDocs Material**: This is the theme used for MkDocs.
+2. If you don't see the `docs` folder automatically created then you need to initialize mkdocs manually:
+
+    ```bash
+    mkdocs new my-project
+    cd my-new-project
+    ```
+
+3. **Install MkDocs Material**: This is the theme used for MkDocs.
 
     ```bash
     pip install mkdocs-material
 
     # Do not forget
+    cd ..
     pip3 freeze > requirements.txt
     ```
 
-3. **Test MkDocs**: Ensure everything is working as expected, if not, reinstall Django, mkdocs & mkdocs-material.
+4. **Test MkDocs**: Ensure everything is working as expected, if not, reinstall Django, mkdocs & mkdocs-material.
 
     ```bash
+    cd my-new-project
     mkdocs serve
     ```
 
@@ -123,12 +132,24 @@ To avoid the `ValueError: ZoneInfo keys may not be absolute paths, got: /UTC` pl
 2. **Configure Build and Deployment**: Under 'Build and Deployment', select 'Deploy from a branch' then choose the source as 'gh-pages' and click the 'Save' button.
 3. **Find URL**: Go back to GitHub Actions and check the process `pages build and deployment ` once it is completed (green). Access it to find your URL at the build-deploy level.
 
-### Style Your Documentation
+## Style Your Documentation
 Enhance your documentation with the following sample code by updating the `mkdocs.yml` file:
 
 - [DjangoViews Mkdocs Material Style](https://github.com/plexoio/djangoviews/blob/main/mkdocs.yml)
 
 Your GitHub Actions workflow should start automatically. It usually takes a few minutes to deploy. You can check the progress in the "Actions" tab on your GitHub repository. Once the action is complete, your MkDocs documentation will be available on your GitHub Pages URL.
+
+### Logo & Favicon
+
+First, ensure that you have created a folder named `assets/` within the mkdocs folder. This should be the subfolder where `index.md` is located, not the main one. Within the `assets/` folder, create additional subfolders, such as `img/`. Your goal is to have the path `my-new-project/docs/assets/img/logo.png` for your logo and favicon.
+
+Next, go to your `mkdocs.yml` file and add the following lines under the `theme:` entry:
+
+```yaml
+theme:
+  logo: assets/img/logo.png
+  favicon: assets/img/logo.png
+```
 
 ## Update Mkdocs & Mkdocs Material
 
