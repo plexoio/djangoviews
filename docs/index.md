@@ -1,7 +1,5 @@
 # DjangoViews: Traversing Class-Based and Function-Based Views in Django
-[GitHub Repository](https://github.com/plexoio/djangoviews){ .md-button .md-button--primary }
-
-[Whatsapp Channel](https://whatsapp.com/channel/0029VaCsHbn5a23x7hElJL2r){ .md-button .md-button--info }
+[GitHub Repository](https://github.com/plexoio/collaboration){ .md-button .md-button--primary }
 
 [Author's LinkedIn](https://www.linkedin.com/in/arellanofrank/){ .md-button .md-button--info }
 

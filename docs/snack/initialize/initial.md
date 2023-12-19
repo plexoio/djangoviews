@@ -42,6 +42,7 @@
     ```bash
     mkdocs serve
     ```
+
 5. **Important**: Remove `.github/` from the `.gitignore` file. It is important to set up the docs with Github Pages:
 
     ```bash
@@ -55,7 +56,7 @@
     cloudinary_python.txt
     ```
 
-6. **Push Changes to GitHub**
+6. **Push Changes to GitHub**: follow the standards!
 
     ```bash
     git add .
