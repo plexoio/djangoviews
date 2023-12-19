@@ -25,8 +25,7 @@
 2. If you don't see the `docs` folder automatically created then you need to initialize mkdocs manually:
 
     ```bash
-    mkdocs new my-project
-    cd my-new-project
+    mkdocs new .
     ```
 
 3. **Install MkDocs Material**: This is the theme used for MkDocs.
@@ -35,14 +34,12 @@
     pip install mkdocs-material
 
     # Do not forget
-    cd ..
     pip3 freeze > requirements.txt
     ```
 
 4. **Test MkDocs**: Ensure everything is working as expected, if not, reinstall Django, mkdocs & mkdocs-material.
 
     ```bash
-    cd my-new-project
     mkdocs serve
     ```
 5. **Important**: Remove `.github/` from the `.gitignore` file. It is important to set up the docs with Github Pages:
@@ -153,7 +150,7 @@ Your GitHub Actions workflow should start automatically. It usually takes a few 
 
 ### Logo & Favicon
 
-First, ensure that you have created a folder named `assets/` within the mkdocs folder. This should be the subfolder where `index.md` is located, not the main one. Within the `assets/` folder, create additional subfolders, such as `img/`. Your goal is to have the path `my-new-project/docs/assets/img/logo.png` for your logo and favicon.
+First, ensure that you have created a folder named `assets/` within the mkdocs folder. This should be the subfolder where `index.md` is located, not the main one. Within the `assets/` folder, create additional subfolders, such as `img/`. Your goal is to have the path  `docs/assets/img/logo.png` for your logo and favicon.
 
 Next, go to your `mkdocs.yml` file and add the following lines under the `theme:` entry:
 
